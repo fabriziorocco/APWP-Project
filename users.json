@@ -1,0 +1,22 @@
+{
+    "1" : {
+        "username" : "gino",
+        "password" : "password_1",
+        "level" : "3"
+    },
+
+    "2" : {
+        "username" : "gino",
+        "password" : "password_1",
+        "level" : "3"
+    },
+
+    "3" : {
+        "username" : "matteo",
+        "password" : "password_2",
+        "level" : "1"
+    }
+}
+
+
+
