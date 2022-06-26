@@ -3,16 +3,17 @@ from cmath import e
 from typing_extensions import Self
 import json
 from  pynput import keyboard
-from keylogger import check_key, on_release
+from src.keylogger import check_key, on_release
 import time
 import random
+import streamlit as st
 
 
 class Window ():
     def __init__(self, user, level) -> None:
         self.user = user
         self.level = level
-        with open('/Users/fabriziorocco/Desktop/APWP-Project/levels.json') as json_file:
+        with open('data/levels.json') as json_file:
             levelsData = json.load(json_file)
         self.levelsData = levelsData
 
@@ -22,8 +23,8 @@ class Window ():
                 self.levelData = value
                 return self.levelData
 
-    def get_sentence(self):
-        sentence = random.choice(self.levelData)
+    def get_sentence(self, listOfSentence):
+        sentence = random.choice(listOfSentence)
         return sentence
 
     def getCurrentSentence(self):
@@ -40,18 +41,20 @@ class Window ():
             on_press=check_key(lst=self.levelData),
             on_release=on_release) as listener:
             listener.join()
-        ##
 
     def userInput(self):
         self.userInputtedSentences = []
         try:
             t0 = time.time()
-            for sentence in self.levelData:
+            counter = 0
+            while counter <= 10:
+                sentence = random.choice(self.levelData)
                 print(sentence)
                 sentenceInputted = str(input(""))
                 self.userInputtedSentences.append(sentenceInputted.lower())
-        except :
-            print("Error in the user input")
+                counter += 1
+        except Exception as e :
+            print(e)
         t1 = time.time()
         self.finalTime = round(t1-t0,2)
         print("{} seconds to finish the level".format(self.finalTime))

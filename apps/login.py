@@ -15,13 +15,13 @@ def app():
 
 
     st.session_state.warning= "Please Imput E-mail and Password"
-    st.markdown('<h1 style="color: #5b61f9;">Welcome!</h1>',
+    st.markdown('<h1 style="color: #5b61f9;">Welcome to our typing service!</h1>',
                 unsafe_allow_html=True)
     type= st.radio("New User?",options=["Log-in","Sign-up"], index=0)
 
 
     if type == "Log-in":
-        user= st.text_input("E-mail")
+        user= st.text_input("Username")
         password= st.text_input("Password", type="password")
 
         a = st.button("Log-in")
@@ -29,7 +29,7 @@ def app():
             Authtentication(user, password)
 
     elif type == "Sign-up":
-        user= st.text_input("E-mail")
+        user= st.text_input("Username")
         password= st.text_input("Password", type="password")
         password2 = st.text_input("Write again the Password", type="password")
         a = st.button("Sign-up")

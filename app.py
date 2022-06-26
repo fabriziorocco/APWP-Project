@@ -1,7 +1,7 @@
 import streamlit as st
 from multiapp import MultiApp
 from apps import login,game,utils # import your app modules here
-from movements import next_page, previous_page, get_to_login
+from src.movements import next_page, previous_page, get_to_login
 import base64
 #INITIALIZE SESSION STATE
 if "selected_var" not in st.session_state:
