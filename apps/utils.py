@@ -3,7 +3,7 @@ import streamlit as st
 
 
 def Authtentication(name, password):
-    f = open('users.json')
+    f = open('data/users.json')
 
     # returns JSON object as a dictionary
     data = json.load(f)
