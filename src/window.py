@@ -3,31 +3,50 @@ from cmath import e
 from typing_extensions import Self
 import json
 from  pynput import keyboard
-from src.keylogger import check_key, on_release
+from keylogger import check_key, on_release
 import time
 import random
 import streamlit as st
 
 
 class Window ():
+
     def __init__(self, user, level) -> None:
+        """
+        This construtor takes as parameters the username and the user level from the JSON data file.
+        Moreover, it loads the dictionary with all the levels into a variable called levelsData
+        """
         self.user = user
         self.level = level
-        with open('data/levels.json') as json_file:
+        with open('../data/levels.json') as json_file:
             levelsData = json.load(json_file)
         self.levelsData = levelsData
 
     def getCurrentLevelData(self) -> list:
+        """
+        This function iterates over the previously created dictionary and takes only the sentences from the level of the user:
+        (for example if the user is at level 3, this function will return a list with only the sentences from level 3)
+        It returns a list containing the sentences
+        """
         for key, value in self.levelsData.items():
             if key == self.level:
                 self.levelData = value
                 return self.levelData
 
     def get_sentence(self, listOfSentence):
+        """
+        This function needs to be fixed. Currently we're not using it.         
+        """
         sentence = random.choice(listOfSentence)
         return sentence
 
     def getCurrentSentence(self):
+        """
+        This function needs to be fixed. Currently we're not using it. 
+        It should handle the keyboard inputs. It is connected to a file called keylogger.py which initializes a listener with two main functions:
+            - On press (what happens when the user press the key k) (In this case if the clicked key is the space, I want it to do something (e.g. to move to the next word in the sentence))
+            - On release (what happens when the user release the key k)        
+        """
         # The event listener will be running in this block
             # with keyboard.Events() as events:
             #     for event in events:
@@ -46,13 +65,10 @@ class Window ():
         self.userInputtedSentences = []
         try:
             t0 = time.time()
-            counter = 0
-            while counter <= 10:
-                sentence = random.choice(self.levelData)
+            for sentence in self.levelData:
                 print(sentence)
                 sentenceInputted = str(input(""))
                 self.userInputtedSentences.append(sentenceInputted.lower())
-                counter += 1
         except Exception as e :
             print(e)
         t1 = time.time()
