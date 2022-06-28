@@ -18,7 +18,7 @@ class Window ():
         """
         self.user = user
         self.level = level
-        with open('../data/levels.json') as json_file:
+        with open('data/levels.json') as json_file:
             levelsData = json.load(json_file)
         self.levelsData = levelsData
 
