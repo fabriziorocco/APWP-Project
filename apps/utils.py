@@ -1,6 +1,5 @@
 import json
 import streamlit as st
-from datetime import datetime
 
 
 def Authtentication(name, password):
@@ -37,7 +36,6 @@ def Sign_up(name, password):
         data["{}".format(name)] = {}
         data["{}".format(name)]["Password"] = password
         data["{}".format(name)]["Level"] = 1
-        #data["{}".format(name)]["Registration date"] = datetime.today().strftime('%Y-%m-%d')
         st.write("Welcome to our Platform!. Click Next to start playing!")
         st.session_state.light = "green"
         st.session_state.Level = data[name]["Level"]
