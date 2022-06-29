@@ -18,7 +18,7 @@ class Window ():
         """
         self.user = user
         self.level = level
-        with open('data/levels.json') as json_file:
+        with open('../data/levels.json') as json_file:
             levelsData = json.load(json_file)
         self.levelsData = levelsData
 
@@ -62,6 +62,10 @@ class Window ():
             listener.join()
 
     def userInput(self):
+        """
+        this function asks the user to continuoosly write a sentence while printing each sentence of the level.
+        When it is completed, the function returns the total time to complete the level
+        """
         self.userInputtedSentences = []
         try:
             t0 = time.time()
@@ -77,6 +81,11 @@ class Window ():
         return self.finalTime
 
     def getAccuracy(self):
+        """
+        This function computes the user's accuracy.
+        To do so, it compares all the words of the real sentences vs the inputted sentences.
+        After that, it computes and returns the proportion of correct words.
+        """
         self.correctWords = 0
         self.wrongWords = 0
         if len(self.userInputtedSentences) == len(self.levelData):
@@ -88,15 +97,26 @@ class Window ():
                         self.wrongWords +=1 
         else: 
             raise Exception ("Lenght of the two arrays is different")
-        self.accuracy = 'Accuracy: {:.1%}'.format(round((self.correctWords/(self.wrongWords + self.correctWords)),2))
-        return self.accuracy
+        self.accuracy = round((self.correctWords/(self.wrongWords + self.correctWords)),2)
+        accuracyMsg = 'Accuracy: {:.1%}'.format(self.accuracy)
+        return accuracyMsg
 
     def getSpeed(self):
+        """
+        This function computes the user's speed.
+        We assume a number of 5 characters per word.
+        We multiply the user's sentences by 60 (1 hour) and we divide it by the time elapsed * 5.
+        """
         self.wpm = round(len(self.userInputtedSentences)*60/(5*self.finalTime),2)
         print("WPM: {}".format(self.wpm))
         return self.wpm
 
     def progressLevel(self):
+        """
+        This function handles user's progresses. 
+        It checks if the accuraacy is above 75% and if so, allows the user to move to the next level.
+        Otherwise it prints some warnings.
+        """
         if self.accuracy >= 75:
             self.level += 1
             print("Congratulation, you can move to level {} ".format(self.level))
@@ -117,3 +137,4 @@ if __name__ == "__main__":
     print(a.userInput())
     print(a.getAccuracy())
     print(a.getSpeed())
+    print(a.progressLevel())
