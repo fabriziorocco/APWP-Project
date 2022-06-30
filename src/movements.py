@@ -2,14 +2,6 @@ import streamlit as st
 
 #INITIALIZE SESSION STATE
 
-<<<<<<< HEAD
-if 'page' not in st.session_state:
-    st.session_state.page = 0
-if "light" not in st.session_state:
-    st.session_state.light= "green"
-if "warning" not in st.session_state:
-    st.session_state.warning= "Undefined Error"
-=======
 """
 This page is very important. The variable light regulates the pages process. When it is set to red, it does not allow the user to move on.
 This is useful because you can put conditions on the "color" of the light. 
@@ -31,7 +23,6 @@ if "warning" not in st.session_state:
 
 if 'num' not in st.session_state:
     st.session_state.num = 1
->>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)
 ######################################################################
 
 def next_page():
@@ -40,18 +31,6 @@ def next_page():
     elif st.session_state.light=="red":
         st.warning(st.session_state.warning)
 
-<<<<<<< HEAD
-def previous_page():
-    st.session_state.page-=1 #TO BE REMOVED
-    st.session_state.model = "To_be_selected"
-    st.session_state.model_type = "To_be_selected"
-
-
-def get_to_login():
-    for key in st.session_state.keys():
-        del st.session_state[key]
-    st.session_state.page=0
-=======
 
 
 def retry():
@@ -64,4 +43,3 @@ def retry():
 
 
 
->>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)

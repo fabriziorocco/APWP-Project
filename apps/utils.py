@@ -47,10 +47,7 @@ def Sign_up(name, password):
         data["{}".format(name)] = {}
         data["{}".format(name)]["Password"] = password
         data["{}".format(name)]["Level"] = 1
-<<<<<<< HEAD
-        #data["{}".format(name)]["Registration date"] = datetime.today().strftime('%Y-%m-%d')
-=======
->>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)
+        data["{}".format(name)]["Registration date"] = datetime.today().strftime('%Y-%m-%d')
         st.write("Welcome to our Platform!. Click Next to start playing!")
         st.session_state.light = "green"
         st.session_state.Level = data[name]["Level"]

@@ -85,8 +85,9 @@ class Window ():
                         self.wrongWords +=1 
         else: 
             raise Exception ("Lenght of the two arrays is different")
-        self.accuracy = 'Accuracy: {:.1%}'.format(round((self.correctWords/(self.wrongWords + self.correctWords)),2))
-        return self.accuracy
+        self.accuracy = round((self.correctWords/(self.wrongWords + self.correctWords)),2)
+        accuracyMsg = 'Accuracy: {:.1%}'.format(self.accuracy)
+        return accuracyMsg
 
     def getSpeed(self):
         self.wpm = round(len(self.userInputtedSentences)*60/(5*self.finalTime),2)
