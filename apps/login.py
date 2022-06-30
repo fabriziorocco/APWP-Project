@@ -2,16 +2,19 @@ import streamlit as st
 import json
 from apps.utils import Authtentication,Sign_up
 
-if 'Level' not in st.session_state:
-    st.session_state.Level = 0
+"""
+This is the page that is displayed when the application is started. It contains the form for both login and sign up.
+Like every page,it contains the check for variables in the session state.
+The functions used in backend are in utils, here is just the form in streamlit.
+"""
 
-if 'Name' not in st.session_state:
+
+if 'Name' not in st.session_state:  #This has been used for testing without doing the authentication.
     st.session_state.Name = "User1"
 
 
 
 def app():
-
 
 
     st.session_state.warning= "Please Imput E-mail and Password"

@@ -1,1 +1,9 @@
+<<<<<<< HEAD
+<<<<<<<< HEAD:data/users.json
 {"Giorgio": {"Password": "pass", "Level": 1}, "Fabrizio": {"Password": "pass1999", "level": 2}, "Gigi": {"Password": "gigii", "Level": 1}, "Belén": {"Password": "Belén", "Level": 1}, "BEZIO": {"Password": "BETHEME", "Level": 3}}
+========
+{"Giorgio": {"Password": "pass", "Level": 1}, "Fabrizio": {"Password": "pass1999", "level": 2}, "Gigi": {"Password": "gigii", "Level": 1}, "fre": {"Password": "fre", "Level": 1}, "BEZIO": {"Password": "BETHEME", "Level": 3}, "Maria": {"Password": "Password", "Level": 1}}
+>>>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.):users.json
+=======
+{"giorgio": {"Password": "pass", "Level": 1}, "bizio": {"Password": "pass", "Level": 1}}
+>>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)
