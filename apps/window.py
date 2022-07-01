@@ -73,21 +73,26 @@ class Window ():
         print("{} seconds to finish the level".format(self.finalTime))
         return self.finalTime,self.userInputtedSentences
 
-    def getAccuracy(self,userInputtedSentences,Truesentences):
+    def getAccuracy(self,df,userInputtedSentences,Truesentences):
         self.correctWords = 0
         self.wrongWords = 0
         if len(userInputtedSentences) == len(Truesentences):
-            for s1, s2 in zip(userInputtedSentences,Truesentences):
-                for w1, w2 in zip(s1,s2):
-                    if w1.lower() == w2.lower():
-                        self.correctWords +=1 
-                    else:
-                        self.wrongWords +=1 
+            for pos in (1, len(userInputtedSentences)):
+                df['match_%d' % pos] = df[userInputtedSentences].str[pos-1].eq(df[Truesentences].str[pos-1]).astype(str)
+            # for s1, s2 in zip(userInputtedSentences,Truesentences):
+            #     print(s1,s2)
+            #     for w1, w2 in zip(s1,s2):
+            #         print(w1,w2)
+            #         if w1.lower() == w2.lower():
+            #             self.correctWords +=1 
+            #         else:
+            #             self.wrongWords +=1 
         else: 
             raise Exception ("Lenght of the two arrays is different")
-        self.accuracy = round((self.correctWords/(self.wrongWords + self.correctWords)),2)
-        accuracyMsg = 'Accuracy: {:.1%}'.format(self.accuracy)
-        return accuracyMsg
+        # self.accuracy = round((self.correctWords/(self.wrongWords + self.correctWords)),2)
+        # accuracyMsg = 'Accuracy: {:.1%}'.format(self.accuracy)
+        # return self.accuracy
+
 
     def getSpeed(self):
         self.wpm = round(len(self.userInputtedSentences)*60/(5*self.finalTime),2)

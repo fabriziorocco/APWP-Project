@@ -41,5 +41,4 @@ def retry():
     else:
         st.session_state.num = 10
 
-
-
+## Num non si restarta perchcè altrimenti tornava sullo stess livello
