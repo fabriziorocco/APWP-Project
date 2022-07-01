@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 Plotting of the number of attempts per level per user
 """
 
-def progress_plot(name):
+def progressPlot(name):
 
     n = input('Enter 0 for accuracy, 1 for speed or 2 for number of attempts')
     n = int(n)
@@ -17,7 +17,7 @@ def progress_plot(name):
 
 
     objects = ('Level 1', 'Level 2', 'Level 3')
-    y_pos = np.arange(len(objects))
+    yPos = np.arange(len(objects))
     performance = [data[name]['Level1'][n],data[name]['Level2'][n],data[name]['Level3'][n]]
 
     if n == 0:
@@ -27,11 +27,11 @@ def progress_plot(name):
     elif n == 2:
         ylabel = 'Attempts per level'
 
-    plt.bar(y_pos, performance, align='center', alpha=0.5)
-    plt.xticks(y_pos, objects)
+    plt.bar(yPos, performance, align='center', alpha=0.5)
+    plt.xticks(yPos, objects)
     plt.ylabel(ylabel)
     plt.title(f"{name}'s progress")
 
     plt.show()
 
-progress_plot('Giorgio')
+progressPlot('Giorgio')
