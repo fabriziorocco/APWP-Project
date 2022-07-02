@@ -3,10 +3,12 @@ from itertools import groupby
 import pandas as pd
 import json
 
-jsonStr = 'users.json'
+jsonStr = open('data/Historical.json')
+# returns JSON object as a dictionary
+data = json.load(jsonStr)
 
 # Convert JSON to DataFrame using read_json()
-df = pd.read_json(jsonStr, orient = 'index')
+df = pd.read_json(data, orient = 'index')
 print(df)
 
 # Create a column called Rank in the df
