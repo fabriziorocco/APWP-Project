@@ -1,12 +1,12 @@
 import streamlit as st
 from multiapp import MultiApp
-<<<<<<< HEAD
+#<<<<<<< HEAD
 from apps import login,game,utils # import your app modules here
-from src.movements import next_page, previous_page, get_to_login
-=======
+from src.movements import next_page, previous_page
+#=======
 from apps import login,game,utils,game2,game3 # import your app modules here
 from src.movements import next_page,retry
->>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)
+#>>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)
 import base64
 
 

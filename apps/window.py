@@ -1,6 +1,4 @@
 
-
-
 #File that control the main window
 from cmath import e
 from typing_extensions import Self
@@ -74,19 +72,17 @@ class Window ():
         return self.finalTime,self.userInputtedSentences
 
     def getAccuracy(self,userInputtedSentences,Truesentences):
-        self.correctWords = 0
-        self.wrongWords = 0
-        if len(userInputtedSentences) == len(Truesentences):
-            for s1, s2 in zip(userInputtedSentences,Truesentences):
-                for w1, w2 in zip(s1,s2):
-                    if w1.lower() == w2.lower():
-                        self.correctWords +=1 
-                    else:
-                        self.wrongWords +=1 
-        else: 
-            raise Exception ("Lenght of the two arrays is different")
-        self.accuracy = 'Accuracy: {:.1%}'.format(round((self.correctWords/(self.wrongWords + self.correctWords)),2))
-        return self.accuracy
+        j = 0
+        counter = 0
+        while j < len(userInputtedSentences):
+            if userInputtedSentences[j] == Truesentences[j]:
+                counter +=1
+
+            j +=1
+
+        st.write(counter)
+        return counter
+
 
     def getSpeed(self):
         self.wpm = round(len(self.userInputtedSentences)*60/(5*self.finalTime),2)

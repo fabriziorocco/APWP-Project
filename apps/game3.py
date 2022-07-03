@@ -54,7 +54,7 @@ def app():
             df["true_sentence"] = (st.session_state.truesentence[0::2])  #QUESTO PERCHE SFACIOLA LE PAGINE
 
             a = userWindow.getAccuracy(list(df["sentence"].iloc[-4:]), list(df["true_sentence"].iloc[-4:]))
-            df["accuracy"] = a
+            df["accuracy"] = str(a)
 
             Historical = open('data/Historical.json')
 
@@ -62,7 +62,6 @@ def app():
             # returns JSON object as a dictionary
             Historical_data = json.load(Historical)
 
-            st.write(df["speed"][0])
 
             Historical_data[st.session_state.Name]["Level3"][0] = df["speed"][0]
             Historical_data[st.session_state.Name]["Level3"][1] = df["accuracy"][0]
@@ -77,14 +76,15 @@ def app():
                 json.dump(Historical_data, fp)
 
 
-            if float(Historical_data[st.session_state.Name]["Level3"][1].split()[1][:-1]) < 75:
+            if float(Historical_data[st.session_state.Name]["Level3"][1]) < 3:
                 st.write("You didn't pass the level. Click repeat to try again!")
 
                 df = pd.DataFrame()
 
 
             else:
-                st.write("Congratulations! You finished the game.")
+                st.balloons()
+                st.title("Congratulations! You finished the game.")
 
 
 

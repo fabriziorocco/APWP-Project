@@ -2,8 +2,9 @@ from requests import session
 import streamlit as st
 import pandas as pd
 import json
-<<<<<<< HEAD
-from src.window import Window
+from apps.window import Window
+import time
+
 
 
 def app():
@@ -22,9 +23,8 @@ def app():
         print(userWindow.getCurrentLevelData())
         userWindow.userInput()
 
-=======
-from apps.window import Window
-import time
+#=======
+
 
 
 """
@@ -61,6 +61,7 @@ if "truesentence" not in st.session_state:  #random sentences
 class NewSentence:  #this create the pages
     def __init__(self, page_id):
 
+
         st.title(f"Sentence n°{page_id}")
 
         self.sentence = st.text_input("Write here the sentence")
@@ -93,7 +94,7 @@ def app():
             df["true_sentence"] = (st.session_state.truesentence[0::2])  #This is because of a bug. The sentences are registered twice.
 
             a = userWindow.getAccuracy(df["sentence"], df["true_sentence"])
-            df["accuracy"] = a
+            df["accuracy"] = str(a)
 
             Historical = open('data/Historical.json')
 
@@ -112,6 +113,7 @@ def app():
 
 
 
+
             with open("data/Historical.json", "w") as fp:
                 json.dump(Historical_data, fp)
 
@@ -120,7 +122,7 @@ def app():
 
 
             if "light" in st.session_state:
-                if float(Historical_data[st.session_state.Name]["Level1"][1].split()[1][:-1]) < 75:
+                if int(Historical_data[st.session_state.Name]["Level1"][1]) < 3:
                     st.write("You didn't pass the level. Click repeat to try again!")
                     st.session_state.light = "red"
                     df = pd.DataFrame()
@@ -145,6 +147,7 @@ def app():
             with placeholder.form(key=str(num)):
 
                 random_sentence = userWindow.get_sentence(data[str(1)])
+
                 st.header(random_sentence)
 
                 st.session_state.truesentence.append(random_sentence)
@@ -163,4 +166,5 @@ def app():
                     placeholder2.empty()
                 else:
                     st.stop()
->>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)
+
+#>>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)
