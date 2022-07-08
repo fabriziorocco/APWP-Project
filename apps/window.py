@@ -91,6 +91,7 @@ class Window ():
 
 
 
+
     def progressLevel(self):
         if self.accuracy >= 75:
             self.level += 1
@@ -102,14 +103,3 @@ class Window ():
 
 
                 
-    
-
-
-if __name__ == "__main__":
-    
-    a = Window("fabrizio", "test")
-    print(a.getCurrentLevelData())
-    #print(a.getCurrentSentence())
-    print(a.userInput())
-    print(a.getAccuracy())
-    print(a.getSpeed())

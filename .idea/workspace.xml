@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a171ee26-1951-4234-bcb4-fb285c8835aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/Stats.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/User.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Untitled.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/Stats.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/User.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/game2.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/game2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/game3.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/game3.py" afterDir="false" />
@@ -12,11 +14,8 @@
       <change beforePath="$PROJECT_DIR$/apps/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/window.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/Historical.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/Historical.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/levels.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/levels.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/keylogger.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/movements.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/movements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/apps" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">

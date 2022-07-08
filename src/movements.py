@@ -24,30 +24,30 @@ The num variable is updated differently by page because different subpages are c
 This makes this part quite counterintuitive, but it is the only solution to Streamlit's features. 
 """
 
-if "light" not in st.session_state:
+
+if "light" not in st.session_state: #light definition default = red
     st.session_state.light= "red"
-if "warning" not in st.session_state:
+if "warning" not in st.session_state: #general warning definition
     st.session_state.warning= "Undefined Error"
 
 if 'num' not in st.session_state:
-    st.session_state.num = 1
+    st.session_state.num = 1  #first sub-page
 #>>>>>>> f358277d (Interface bulding with most of the functionalities of the game. Also comments added per page.)
 ######################################################################
 
+
 def next_page():
     if st.session_state.light=="green":
-        st.session_state.page += 1
+        st.session_state.page += 1 #navigate in the app
     elif st.session_state.light=="red":
-        st.warning(st.session_state.warning)
+        st.warning(st.session_state.warning)  #block the navigation, print the error definied for each page
 
 #<<<<<<< HEAD
 def previous_page():
     st.session_state.page-=1 #TO BE REMOVED
-    st.session_state.model = "To_be_selected"
-    st.session_state.model_type = "To_be_selected"
 
 
-def get_to_login():
+def go_to_home():  #reset the variables and go back home to restart
     for key in st.session_state.keys():
         del st.session_state[key]
     st.session_state.page=0
@@ -55,12 +55,12 @@ def get_to_login():
 
 
 def retry():
-    if st.session_state.page == 1:
+    if st.session_state.page == 1: #game1
         st.session_state.num = 1
-    elif st.session_state.page == 2:
+    elif st.session_state.page == 2: #game2
         st.session_state.num = 5
     else:
-        st.session_state.num = 10
+        st.session_state.num = 10 #game2
 
 
 

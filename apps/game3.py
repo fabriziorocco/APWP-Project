@@ -45,7 +45,8 @@ def app():
 
 
         if st.session_state.num ==15:
-            st.header("Level 3")
+            st.markdown('<h1 style="color: #5b61f9;">Level 3!</h1>',
+                        unsafe_allow_html=True)
             placeholder2.empty()
             df = pd.DataFrame(st.session_state.sentenceinput)
             df["speed"] = (df["time"].iloc[-1] - df["time"].iloc[0])
@@ -77,7 +78,9 @@ def app():
 
 
             if float(Historical_data[st.session_state.Name]["Level3"][1]) < 3:
-                st.write("You didn't pass the level. Click repeat to try again!")
+                st.markdown('<h3 style="color: #ff0000;">You did not pass the level! Please click repeat!</h3>',
+                            unsafe_allow_html=True)
+
 
                 df = pd.DataFrame()
 
@@ -91,16 +94,18 @@ def app():
 
             break
         else:
-
-
-            f = open('data/levels.json')
-            data = json.load(f)
+            char2int = pickle.load(open(f"data/wonderland.txt-char2int.pickle", "rb"))
+            int2char = pickle.load(open(f"data/wonderland.txt-int2char.pickle", "rb"))
+            model = keras.models.load_model(f"data/wonderland.txt-100.h5")
+            data = sen_generator(3,3,int2char,char2int,model)
+            #f = open('data/levels.json')
+            #data = json.load(f)
             userWindow = Window(user=st.session_state.Name, level=3)
 
 
             with placeholder.form(key=str(num)):
 
-                random_sentence = userWindow.get_sentence(data[str(3)])
+                random_sentence = userWindow.get_sentence(list(data))
                 st.header(random_sentence)
 
                 st.session_state.truesentence.append(random_sentence)

@@ -2,7 +2,7 @@ import streamlit as st
 from multiapp import MultiApp
 #<<<<<<< HEAD
 from apps import login,game,utils # import your app modules here
-from src.movements import next_page, previous_page
+from src.movements import next_page, previous_page,go_to_home
 #=======
 from apps import login,game,utils,game2,game3 # import your app modules here
 from src.movements import next_page,retry
@@ -48,24 +48,19 @@ if "new_user_succesfully_signed_in" not in st.session_state:
 
 #Multiapp Initialization
 
-app = MultiApp()
-# st.markdown("""
-# # Churn Prediction App
-#
-# This multi-page app is automatizing the creation of Churn prediction ML models
-# """)
+app = MultiApp() #streamlit class multiapp
 # Add all your application here
 app.add_app("Login", login.app)
 app.add_app("Game",game.app)
 app.add_app("Game2",game2.app)
 app.add_app("Game3",game3.app)
-#app.add_app("Train Prediction Selection",train_pred_selection.app)
 # The main app
 app.run()
 
 #Move through the pages
 
 
+#in this part you decide where to put the buttons created in movements.py
 if st.session_state.page_name!= "Game3":
     with st.container():
         col1, col2 = st.columns(2)
@@ -80,3 +75,8 @@ if st.session_state.page_name != "Login":
             repeat = st.button('Repeat', on_click=retry, key=2)
 
 
+if st.session_state.page_name == "Game3":
+    with st.container():
+        col1, col2 = st.columns(2)
+        with col1:
+            repeat = st.button('Go to Homepage', on_click=go_to_home, key=2)
