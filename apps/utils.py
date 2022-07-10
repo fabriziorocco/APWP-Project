@@ -7,7 +7,6 @@ import pandas as pd
 import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
-import essential_generators
 from essential_generators import DocumentGenerator
 from essential_generators import MarkovWordGenerator
 from essential_generators import MarkovTextGenerator

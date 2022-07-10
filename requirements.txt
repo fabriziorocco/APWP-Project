@@ -1,0 +1,10 @@
+streamlit
+pandas
+json
+requests
+datetime
+matplotlib
+essential_generators
+numpy
+tqdm
+pickle
